@@ -42,10 +42,7 @@ nav ul{
     padding: 20px;
 }
 
-a:visited{
-    color: white;
 
-}
 
 nav a:hover{
     background-color: white;
@@ -116,7 +113,7 @@ main img{
 main .coachinfo img{
     max-width: 300px;
     max-height: 400px;
-    
+
 }
 
 
