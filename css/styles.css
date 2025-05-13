@@ -100,10 +100,10 @@ nav li{
     text-align: center;
     background-color: rgb(167, 166, 166);
 }
-.coaches {
+#coaches {
     color: rgb(12, 1, 1);
     text-align: center;
-    font-size: x-large;
+    font-size: 30px;
     background-color: black
 }
 main img{
@@ -415,7 +415,7 @@ table {
 }
   
   .image-container img {
-    width: %;
+    width: 50%;
     height: auto;
     display: block;
 } 
