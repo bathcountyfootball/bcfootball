@@ -26,8 +26,8 @@ header video{
 }
 
 header img{
-    width: 50%;
-    height: 50%;
+    width: 25%;
+    height: 25%;
     border: solid white;
 }
 
@@ -108,6 +108,15 @@ nav li{
     text-align: center;
     font-size: x-large;
     background-color: black
+}
+main img{
+    max-width: 300px;
+    max-height: 400px;
+}
+main .coachinfo img{
+    max-width: 300px;
+    max-height: 400px;
+    
 }
 
 
