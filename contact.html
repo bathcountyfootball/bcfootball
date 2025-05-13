@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+	Student Name: Kristie Jones
+	File Name: contact.html
+-->
+
+<html lang="en">
+
+<head>
+    <title>Bath County Quarterback Club: Contact</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    
+    <header>
+        <div id="header">
+            <img src="images/bathcountyqbclub.jpg"width=1000 height="500">
+		<nav class="navbar">
+            <ul id="navlist">		
+				<li><a href="index.html">Home</a></li>
+				<li><a href="flag.html">Flag Football</a></li>
+				<li><a href="jrpro.html">Jr Pro Football</a></li>
+				<li><a href="middleschool.html">Middle School</a></li>
+				<li><a href="highschool.html">High School</a></li>
+			</ul>
+    	</nav>
+        </div>
+    </header>
+    <!-- Use the main area to add the main content to the webpage -->
+    <main>
+        <form action="mailto:bathcountyquarterbackclub@gmail.com" method="POST" enctype="multipart/form-data" name="ContactForm">
+            Name:<br>
+            <input type="text" size="19" name="Contact-Name"><br><br>
+            I am a:<br>
+
+            <input type="checkbox" name="fan" id="fan" value="fan">
+            <label>Fan</label>
+            <input type="checkbox" name="parent" id="parent" value="parent">
+            <label>Parent</label>
+            <input type="checkbox" name="coach" id="coach" value="coach">
+            <label>Coach</label>
+            <input type="checkbox" name="media" id="media" value="media">
+            <label>Member of the Media</label><br><br>
+            Email:<br>
+            <input type="email" name="Contact-Email"><br><br>
+            Phone Number:<br>
+            <input type="phone" name="Contact-Phone"><br><br>
+            Is this a cell or landline?
+            <input type="radio" name="cell" id="cell" value="cell">
+            <label>Cell</label>
+            <input type="radio" name="landline" id="landline" value="landline">
+            <label>Landline</label><br><br>
+            
+            <label for="information">What would you like more information for?</label>
+            <select id="information" name="Information">
+                <option value="sponsor">Become a Sponsor</option>
+                <option value="volunteer">Volunteer</option>
+                <option value="meal">Provide a pre/post-game meal</option>
+                <option value="Other">Other</options>
+            </select><br><br>
+            Message:<br>
+            <textarea name="Contact-Message" rows="6" cols="20"></textarea><br><br>
+            <button type="submit" value="Submit">Send</button>
+        </form>
+    <footer>
+        <p>&copy; Copyright 2025. All Rights Reserved.</p>
+        <p><a href="mailto:bcquarterbackclub@gmail.com">bathcountyquarterbackclub@gmail.com</a></p>
+
+     </footer>
+</body>
+
+</html>
+	
