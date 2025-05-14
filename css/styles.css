@@ -435,3 +435,11 @@ table {
   background-color: grey;
   text-align: center;
 }
+//This is used to control the animation speed and its duration
+img{
+transition:initial;
+}
+//This property is used to change the properties of the image on hover
+img:hover{
+    transform: inherit;
+}
