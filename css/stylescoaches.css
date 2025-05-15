@@ -64,7 +64,7 @@ main .container {
     background-color: rgba(0, 0, 0, 0.6); /* overlay to improve readability */
     border-radius: 12px;
     margin: 40px auto;
-    max-width: 1200px;
+    max-width: 800px;
 }
 
 /* Coach Profile Cards */
