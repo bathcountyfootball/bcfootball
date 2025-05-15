@@ -11,7 +11,7 @@ File Name: styles.css
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url('../images/Tunnelbgrd/800x600.jpg'); /* <-- ensure the image file has .jpg or proper extension */
+    background-image: url('images/Tunnelbgrd/800x600.jpg'); /* <-- ensure the image file has .jpg or proper extension */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -22,7 +22,7 @@ body {
 
 /* Header */
 header {
-    background-color: rgba(0, 0, 50, 0.7); /* semi-transparent navy */
+    background-color: rgb(221, 3, 3); /* semi-transparent navy */
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.5);
@@ -30,7 +30,7 @@ header {
 
 header h1 {
     font-size: 2.5em;
-    color: #ffd700; /* Wildcat gold */
+    color: #060606; /* Wildcat gold */
     margin-bottom: 10px;
 }
 
@@ -51,7 +51,7 @@ header h1 {
 }
 
 .navbar a:hover {
-    color: #ffd700;
+    color: #ff0000;
 }
 
 /* Main Content */
@@ -70,7 +70,7 @@ main .container {
 /* Coach Profile Cards */
 .coachicon {
     background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid #ffd700;
+    border: 2px solid #b0a9a9;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
@@ -88,7 +88,7 @@ main .container {
 .coachicon h1 {
     font-size: 1.5em;
     margin-top: 15px;
-    color: #ffd700;
+    color: #f10505;
 }
 
 .coachicon h3 {
@@ -98,7 +98,7 @@ main .container {
 
 .coachicon:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px #ffd700;
+    box-shadow: 0 0 15px #0e0d0d;
 }
 
 /* Divider Lines */
@@ -116,7 +116,7 @@ footer {
 }
 
 footer a {
-    color: #ffd700;
+    color: #fefcfc;
     text-decoration: none;
 }
 
