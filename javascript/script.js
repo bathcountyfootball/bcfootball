@@ -48,7 +48,7 @@ for (var i = 0; i < btns.length; i++) {
 }
 
 // Set the target date
-const targetDate = new Date("2025-12-31T23:59:59").getTime();
+const targetDate = new Date("2025-08-22T19:30:00").getTime();
 
 function updateCountdown() {
   const now = new Date().getTime();
