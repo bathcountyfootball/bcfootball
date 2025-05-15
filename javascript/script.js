@@ -46,3 +46,31 @@ for (var i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
+
+// Set the target date
+const targetDate = new Date("2025-12-31T23:59:59").getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  if (distance < 0) {
+    document.getElementById("timer").innerHTML = "🚀 Launched!";
+    clearInterval(interval);
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("days").innerText = days.toString().padStart(2, '0');
+  document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+  document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+  document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+}
+
+// Update the countdown every second
+const interval = setInterval(updateCountdown, 1000);
+updateCountdown(); // run once on load
