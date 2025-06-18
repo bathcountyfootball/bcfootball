@@ -85,24 +85,22 @@ document.getElementById("playerForm").addEventListener("submit", function(e) {
     data[key] = value;
   });
 
-fetch("https://script.google.com/macros/s/AKfycbyOMuo_lz25nwPDsdu05ZJcOFqNhOAs-FNCOIRrwBSc8M32denbdQzyOw_9_aZN7zQp/exec", {
-  method: "POST",
-  body: new URLSearchParams(data),
-  headers: {
-    "Content-Type": "application/x-www-form-urlencoded"
-  }
-})
+const formData = new FormData(form);
 
-  .then(res => res.text())
-  .then(response => {
-    form.style.display = "none";
-    document.getElementById("thankYouMessage").style.display = "block";
-    setTimeout(() => {
-      window.location.href = "https://bcquarterbackstore.square.site";
-    }, 5000); // 5-second delay
-  })
-  .catch(error => alert("Error submitting form: " + error));
-});
+fetch("https://script.google.com/macros/s/AKfycbwe_x6bQC67fwXdSkBQOTBsT_oDIyM4P_7A66eKEA2uyg8wN64MrdVb2HpKicEHciUD/exec", {
+  method: "POST",
+  body: formData
+})
+.then(res => res.text())
+.then(response => {
+  form.style.display = "none";
+  document.getElementById("thankYouMessage").style.display = "block";
+  setTimeout(() => {
+    window.location.href = "https://bcquarterbackstore.square.site";
+  }, 5000);
+})
+.catch(error => alert("Error submitting form: " + error));
+
 </script>
 
 
@@ -115,5 +113,5 @@ fetch("https://script.google.com/macros/s/AKfycbyOMuo_lz25nwPDsdu05ZJcOFqNhOAs-F
 	</body>
 
 <footer>
-<h4>v25.2</h4>
+<h4>v25.3</h4>
 </footer>
