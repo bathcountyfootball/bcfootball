@@ -1,3 +1,38 @@
+<!DOCTYPE html>
+<!--
+	Web Creator: Kristie Jones
+	File Name: registration.html
+-->
+
+<html lang="en">
+
+	<head>
+    	<title>Bath County Quarterback Club: Home</title>
+    	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<link rel="stylesheet" href="css/styles.css">
+	</head>
+	<body>
+		</style>
+		<header>
+			<div id="header">
+			<div class="mobile">
+				<img src="images/bathcountyqbclub.jpg"width=1000 height="500">	
+				<nav class="navbar">
+					<ul id="navlist">		
+						<li><a href="index.html" style="color: inherit;">Home</a></li>
+						<!--
+						<li><a href="flag.html" style="color: inherit;" >Flag Football</a></li>
+						<li><a href="jrpro.html" style="color: inherit;" >Jr Pro Football</a></li>
+						<li><a href="middleschool.html" style="color: inherit;" >Middle School</a></li>
+						-->
+						<li><a href="highschool.html" style="color: inherit;" >High School</a></li>
+					</ul>
+    			</nav>
+			</div>
+			</div>
+		</header>
+	<main>
 <form id="playerForm">
   <input name="playerName" placeholder="Player Name" required><br>
   <input name="playerAddress" placeholder="Player Address" required><br>
@@ -31,9 +66,25 @@ document.getElementById("playerForm").addEventListener("submit", function(e) {
   })
   .then(res => res.text())
   .then(response => {
-    alert("Form submitted successfully!");
-    window.location.href = "https://bcquarterbackstore.square.site";
+    form.style.display = "none";
+    document.getElementById("thankYouMessage").style.display = "block";
+    setTimeout(() => {
+      window.location.href = "https://bcquarterbackstore.square.site";
+    }, 5000); // 5-second delay
   })
   .catch(error => alert("Error submitting form: " + error));
 });
 </script>
+
+
+<div id="thankYouMessage" style="display:none; text-align:center; margin-top:30px;">
+  <h2>Thank You for Registering!</h2>
+  <p>Your registration has been received. You will be redirected to the payment page shortly.</p>
+</div>
+
+</main>
+	</body>
+
+<footer>
+	
+</footer>
