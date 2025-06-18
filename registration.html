@@ -1,0 +1,39 @@
+<form id="playerForm">
+  <input name="playerName" placeholder="Player Name" required><br>
+  <input name="playerAddress" placeholder="Player Address" required><br>
+  <select name="gender">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select><br>
+  <input type="date" name="birthday" required><br>
+  <input name="age" placeholder="Age" readonly><br>
+  <!-- Add the rest of your fields here -->
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+document.getElementById("playerForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = {};
+  new FormData(form).forEach((value, key) => {
+    data[key] = value;
+  });
+
+  fetch(https://script.google.com/macros/s/AKfycbw_2pQUiXgGEz2JBdsckxk6tD9ciOZ-nyeGgBjUip69Kgwh_fzIbPnEpg-Zr_OUjU0h/exec, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(res => res.text())
+  .then(response => {
+    alert("Form submitted successfully!");
+    window.location.href = "https://bcquarterbackstore.square.site";
+  })
+  .catch(error => alert("Error submitting form: " + error));
+});
+</script>
