@@ -47,7 +47,7 @@ for (var i = 0; i < btns.length; i++) {
   });
 }
 
-fetch("https://script.google.com/macros/s/AKfycbx2p2EVP5iVLqIxZi7qSOLYSFcdFfc83IVQ58zlGNjmd-cQboLd2XzXl54wRn3h9mbc/exec", {
+fetch("https://script.google.com/macros/s/AKfycbyOMuo_lz25nwPDsdu05ZJcOFqNhOAs-FNCOIRrwBSc8M32denbdQzyOw_9_aZN7zQp/exec", {
   method: "POST",
   body: JSON.stringify(data),
   headers: {
