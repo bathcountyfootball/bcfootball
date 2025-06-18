@@ -47,3 +47,10 @@ for (var i = 0; i < btns.length; i++) {
   });
 }
 
+fetch("https://script.google.com/macros/s/AKfycbx2p2EVP5iVLqIxZi7qSOLYSFcdFfc83IVQ58zlGNjmd-cQboLd2XzXl54wRn3h9mbc/exec", {
+  method: "POST",
+  body: JSON.stringify(data),
+  headers: {
+    "Content-Type": "application/json"
+  }
+})
