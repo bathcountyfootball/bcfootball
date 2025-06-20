@@ -102,11 +102,11 @@ body::before {
 }
 
 .playericon img {
-  width: 200px;      /* increased from 150px */
-  height: 200px;     /* increased from 150px */
-  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px; /* square-ish corners instead of 50% circle */
   border: 3px solid white;
-  object-fit: cover;
+  object-fit: contain; /* or 'cover' if you want it cropped to fill */
   margin-bottom: 10px;
   transition: transform 0.3s ease;
 }
