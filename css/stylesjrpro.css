@@ -157,3 +157,49 @@ footer a {
   color: #fff;
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  #header h1 {
+    font-size: 1.8rem;
+    margin: 10px 0;
+  }
+
+  #navlist {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #navlist li {
+    margin: 5px 0;
+  }
+
+  .flashing-box {
+    width: 90%;
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .flex-child {
+    flex: 1 1 100%;
+    max-width: 95%;
+    margin: 10px 0;
+    padding: 15px;
+  }
+
+  .grid-child.photos img {
+    width: 100%;
+    height: auto;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
