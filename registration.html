@@ -32,6 +32,9 @@
       <h2>Campers will meet on the field each night at 6pm.</h2>
       <h2>On 7/30 and 7/31, camp will end at 8pm.</h2>
       <h2>On 8/1, camp will end at 7pm with a pool party to follow.</h2>
+	  <br>
+	  <br>
+	  <p>Please complete a form for EACH player. When you hit Submit, you will be taken to Square to pay for registration. You can pay for multiple players at the same time on that site.</p>
       
       <form id="playerForm">
         <input name="playerName" placeholder="Player Name" required><br>
@@ -73,7 +76,8 @@
       
       <div id="thankYouMessage" style="display:none; text-align:center; margin-top:30px;">
         <h2>Thank You for Registering!</h2>
-        <p>Your registration has been received. You will be redirected to the payment page shortly.</p>
+        <p>Your registration has been received.</p>
+		<h1>You will be redirected to our Square site for registration payment. If you are not redirected, please contact us.</h1>
       </div>
     </main>
     
@@ -87,22 +91,24 @@
           data[key] = value;
         });
         
-        // Replace the URL below with your Google Apps Script web app URL that sends the email.
-        fetch("https://script.google.com/macros/s/AKfycbyixlAFoPy0zLij7mXNcwteZHcsU26vrH91fM4_Iwj1PNBLG17PkXIvJcIcgYizxpoN/exec", {
+        // Post the form data to your Google Apps Script endpoint.
+        fetch("https://script.google.com/macros/s/AKfycbwxvCNawsyLOZpyFf_PBo2VFHi9kmURTfb_DUigF3l0bbIfUjgUTSN0V-4E_gs0Vnug/exec", {
           method: "POST",
+          mode: "no-cors",  // Use no-cors for local testing if needed.
           body: JSON.stringify(data),
           headers: { "Content-Type": "application/json" }
         })
-        .then(response => response.text())
-        .then(result => {
-          // Show thank-you message and redirect after 5 seconds.
+        .then(response => {
+          // Regardless of response, redirect the user.
           form.style.display = "none";
           document.getElementById("thankYouMessage").style.display = "block";
-          setTimeout(() => {
-            window.location.href = "https://bcquarterbackstore.square.site";
-          }, 5000);
+          window.location.href = "https://bcquarterbackstore.square.site";
         })
-        .catch(error => alert("Error submitting form: " + error));
+        .catch(error => {
+          alert("Error submitting form: " + error);
+          // Even if there's an error, proceed to redirect.
+          window.location.href = "https://bcquarterbackstore.square.site";
+        });
       });
     </script>
     
