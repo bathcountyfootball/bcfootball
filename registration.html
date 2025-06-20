@@ -102,12 +102,17 @@
           body: JSON.stringify(data),
           headers: { "Content-Type": "application/json" }
         })
+
         .then(response => {
-          // Regardless of response, redirect the user.
-          form.style.display = "none";
-          document.getElementById("thankYouMessage").style.display = "block";
-          window.location.href = "https://bcquarterbackstore.square.site";
-        })
+        form.style.display = "none";
+        document.getElementById("thankYouMessage").style.display = "block";
+
+       // Delay redirect by 5 seconds (5000 milliseconds)
+       setTimeout(() => {
+       window.location.href = "https://bcquarterbackstore.square.site";
+      }, 5000);
+      })
+
         .catch(error => {
           alert("Error submitting form: " + error);
           // Even if there's an error, proceed to redirect.
