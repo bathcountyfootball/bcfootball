@@ -1,0 +1,129 @@
+/* General Page Styling */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #fffcf2, #e0f7fa);
+  color: #333;
+  background-color: blue;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #d62828;
+  letter-spacing: 1px;
+}
+
+/* Header */
+#header {
+  background-color: #3ce636;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 5px solid #820dac;
+}
+
+/* Navigation Bar */
+.navbar {
+  background-color: #14213d;
+  padding: 10px 0;
+  text-align: center;
+}
+
+#navlist {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#navlist li {
+  margin: 0 15px;
+}
+
+#navlist a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+  background-color: #d62828;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+#navlist a:hover {
+  background-color: #f77f00;
+}
+
+/* Flashing Box */
+.flashing-box {
+  padding: 15px 25px;
+  margin: 25px auto;
+  background-color: #f60606;
+  border: 3px solid #0c0101;
+  border-radius: 12px;
+  width: fit-content;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  animation: flash 1.2s infinite alternate;
+  text-align: center;
+}
+
+.flashing-box a {
+  color: #f70606;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+/* Flash Animation */
+@keyframes flash {
+  0% {
+    background-color: #ffffff;
+    border-color: #d62828;
+  }
+  50% {
+    background-color: #ffddcc;
+    border-color: #ef2525;
+  }
+  100% {
+    background-color: #ffffff;
+    border-color: #f30606;
+  }
+}
+
+/* Flex Container */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.flex-child {
+  flex: 1 1 45%;
+  margin: 10px;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Grid Container */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #14213d;
+  color: #fff;
+  padding: 15px;
+  margin-top: 40px;
+}

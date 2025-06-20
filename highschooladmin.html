@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Admin Interface - Update Tables</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      border: 1px solid #ccc;
+      padding: 20px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      font-family: monospace;
+      margin-top: 5px;
+    }
+    input[type="submit"] {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .instructions {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Admin Interface</h1>
+  
+  <div class="instructions">
+    <p>
+      Enter your table data as JSON. The expected format is a JSON array of rows, where each row is an array of cell values.
+    </p>
+    <p>Example for a schedule table:</p>
+    <pre>
+[
+  ["Week", "Date", "Opponent", "Location"],
+  ["Scrimmage 1", "August 8", "East Ridge, West Carter, Harlan", "HOME"],
+  ["Scrimmage 2", "August 15", "EKC vs Paris", "HOME"]
+]
+    </pre>
+    <p>Example for a roster table:</p>
+    <pre>
+[
+  ["Jersey", "Player", "Position", "Graduation Year"],
+  ["34", "Elias Armstrong", "LB/RB", "2026"],
+  ["64", "Brody Johnson", "DL/OL", "2026"]
+]
+    </pre>
+  </div>
+  
+  <form id="adminForm">
+    <label for="scheduleData">Schedule Data (JSON):</label>
+    <textarea id="scheduleData" placeholder="Enter schedule data as JSON"></textarea>
+    
+    <label for="rosterData">Roster Data (JSON):</label>
+    <textarea id="rosterData" placeholder="Enter roster data as JSON"></textarea>
+    
+    <input type="submit" value="Save Data">
+  </form>
+  
+  <script>
+    // Pre-fill the textareas with saved data, if available.
+    document.getElementById('scheduleData').value = localStorage.getItem('scheduleData') || '';
+    document.getElementById('rosterData').value = localStorage.getItem('rosterData') || '';
+    
+    // Listen for the form submission.
+    document.getElementById('adminForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      var scheduleJSON = document.getElementById('scheduleData').value;
+      var rosterJSON = document.getElementById('rosterData').value;
+      
+      // Validate JSON data.
+      try {
+        JSON.parse(scheduleJSON);
+        JSON.parse(rosterJSON);
+      } catch (error) {
+        alert('Invalid JSON data. Please correct any errors and try again.');
+        return;
+      }
+      
+      // Save the valid JSON strings to localStorage
+      localStorage.setItem('scheduleData', scheduleJSON);
+      localStorage.setItem('rosterData', rosterJSON);
+      
+      alert('Data saved successfully!');
+    });
+  </script>
+</body>
+</html>
