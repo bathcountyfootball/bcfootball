@@ -1,132 +1,163 @@
-/* General Page Styling */
+/* === Base Layout === */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #fffcf2, #e0f7fa);
-  color: #333;
-  background-color: blue;
+  background: #fff;
+  color: #a30000; /* Wildcat Red */
+  background-image: url("images/wildcat-faint-logo.png"); /* Optional: subtle Wildcat background */
+  background-repeat: repeat;
+  background-size: 120px;
 }
 
-h1, h2, h3 {
-  text-align: center;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #d62828;
-  letter-spacing: 1px;
-}
-
-/* Header */
+/* === Header === */
 #header {
-  background-color: #3ce636;
-  padding: 20px;
+  background: #a30000;
+  color: #fff;
   text-align: center;
-  border-bottom: 5px solid #820dac;
+  padding: 20px 10px;
+  border-bottom: 5px solid #fff;
 }
 
-/* Navigation Bar */
+#header h1 {
+  font-size: 2.5rem;
+  margin: 20px 0;
+  text-shadow: 2px 2px #660000;
+}
+
+/* === Navigation === */
 .navbar {
-  background-color: #14213d;
+  background-color: #fff;
   padding: 10px 0;
-  text-align: center;
 }
 
 #navlist {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  list-style: none;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
 }
 
 #navlist li {
-  margin: 0 15px;
+  margin: 0 12px;
 }
 
 #navlist a {
   text-decoration: none;
-  font-weight: bold;
+  background-color: #a30000;
   color: #fff;
-  background-color: #d62828;
-  padding: 10px 15px;
+  padding: 10px 16px;
   border-radius: 8px;
+  font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
 #navlist a:hover {
-  background-color: #f77f00;
+  background-color: #fff;
+  color: #a30000;
+  border: 2px solid #a30000;
 }
 
-/* Flashing Box */
+/* === News Section & Flashing Box === */
+.news h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
 .flashing-box {
-  padding: 15px 25px;
-  margin: 25px auto;
-  background-color: #f60606;
-  border: 3px solid #0c0101;
+  list-style: none;
+  margin: 30px auto;
+  padding: 18px 25px;
+  background-color: #ffffff;
+  border: 4px solid #a30000;
   border-radius: 12px;
   width: fit-content;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-  animation: flash 1.2s infinite alternate;
+  animation: flash 1.4s infinite alternate;
   text-align: center;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
 }
 
 .flashing-box a {
-  color: #f70606;
+  color: #a30000;
   font-weight: bold;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
-/* Flash Animation */
 @keyframes flash {
-  0% {
-    background-color: #ffffff;
-    border-color: #d62828;
-  }
-  50% {
-    background-color: #ffddcc;
-    border-color: #ef2525;
-  }
-  100% {
-    background-color: #ffffff;
-    border-color: #f30606;
-  }
+  0% { background-color: #ffffff; border-color: #a30000; }
+  50% { background-color: #ffe6e6; border-color: #ff5555; }
+  100% { background-color: #ffffff; border-color: #a30000; }
 }
 
-/* Flex Container */
+/* === Flex Layout === */
 .flex-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 20px;
+  background-color: #f9f9f9;
 }
 
 .flex-child {
   flex: 1 1 45%;
+  background-color: #fff;
   margin: 10px;
-  background-color: #f0f0f0;
-  border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border: 2px solid #a30000;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Grid Container */
+/* === Roster & Schedule Headings === */
+.flex-child h2 {
+  color: #a30000;
+  text-align: center;
+  border-bottom: 2px solid #a30000;
+  padding-bottom: 5px;
+}
+
+.flex-child h3 {
+  text-align: center;
+  font-style: italic;
+  color: #555;
+}
+
+/* === Grid Teams Section === */
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
+  place-items: center;
   padding: 20px;
-  gap: 20px;
+  background-color: #fff;
 }
 
-/* Footer */
+.grid-child.photos h2 {
+  color: #a30000;
+  margin-top: 30px;
+}
+
+.grid-child.photos img {
+  border-radius: 8px;
+  border: 3px solid #a30000;
+  margin: 10px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* === Footer === */
 footer {
-  text-align: center;
-  background-color: #14213d;
+  background-color: #a30000;
   color: #fff;
+  text-align: center;
   padding: 15px;
   margin-top: 40px;
 }
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   #header h1 {
     font-size: 1.8rem;
@@ -171,7 +202,6 @@ footer {
     font-size: 0.9rem;
     padding: 10px;
   }
-
   #header img {
     width: auto;
     height: auto;
