@@ -14,17 +14,62 @@
 	</head>
 	<body>
 		<header>
-				<h1>Bath County High School Wildcats</h1>
-				<div id="countdown">
-  					<h2>🏈 Wildcats Kickoff Countdown</h2>
-  					<div id="timer">
-    					<div class="time-box"><span id="days"></span><label>Days</label></div>
-    					<div class="time-box"><span id="hours"></span><label>Hours</label></div>
-    					<div class="time-box"><span id="minutes"></span><label>Minutes</label></div>
-    					<div class="time-box"><span id="seconds"></span><label>Seconds</label></div>
-  					</div>
-				</div>
-				 <script>
+<title>Wildcat Countdown</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #countdown h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #ffd700;
+    }
+
+    #timer {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-size: 1.5em;
+    }
+
+    .time-box {
+      background: #800000;
+      padding: 20px;
+      border-radius: 10px;
+      min-width: 90px;
+      box-shadow: 0 0 10px #ffd700;
+    }
+
+    .time-box span {
+      display: block;
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    .time-box label {
+      font-size: 1em;
+      display: block;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="countdown">
+    <h2>🏈 Countdown to August 22, 2025 at 7:30 PM</h2>
+    <div id="timer">
+      <div class="time-box"><span id="days"></span><label>Days</label></div>
+      <div class="time-box"><span id="hours"></span><label>Hours</label></div>
+      <div class="time-box"><span id="minutes"></span><label>Minutes</label></div>
+      <div class="time-box"><span id="seconds"></span><label>Seconds</label></div>
+    </div>
+  </div>
+
+  <script>
     function updateCountdown() {
       const eventDate = new Date("August 22, 2025 19:30:00");
       const now = new Date();
