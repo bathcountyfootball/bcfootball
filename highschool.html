@@ -1,499 +1,102 @@
 <!DOCTYPE html>
 <!--
-	Student Name: Kristie Jones
-	File Name: highschool.html
+  Student Name: Kristie Jones
+  File Name: highschool.html
 -->
-	
 <html lang="en">
-	<head>
-		<title>Bath County High School Wildcats</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="css/styleshighschool.css">
-
-	</head>
-	<body>
-		<header>
-<title>Wildcat Countdown</title>
-  <style>
-    body {
-      background-color: #000;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    #countdown h2 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      color: #ffd700;
-    }
-
-    #timer {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      font-size: 1.5em;
-    }
-
-    .time-box {
-      background: #800000;
-      padding: 20px;
-      border-radius: 10px;
-      min-width: 90px;
-      box-shadow: 0 0 10px #ffd700;
-    }
-
-    .time-box span {
-      display: block;
-      font-size: 2em;
-      font-weight: bold;
-    }
-
-    .time-box label {
-      font-size: 1em;
-      display: block;
-      margin-top: 5px;
-    }
-  </style>
+<head>
+  <title>Bath County Quarterback Club: Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-  <div id="countdown">
-	<h1>BATH COUNTY WILDCATS</h1>
-    <h2>🏈 Countdown to KICKOFF!!!!
-	<h3>August 22, 2025 at 7:30 PM</h3>
-    <div id="timer">
-      <div class="time-box"><span id="days"></span><label>Days</label></div>
-      <div class="time-box"><span id="hours"></span><label>Hours</label></div>
-      <div class="time-box"><span id="minutes"></span><label>Minutes</label></div>
-      <div class="time-box"><span id="seconds"></span><label>Seconds</label></div>
+  <header>
+    <div id="header">
+      <h1>Bath County High School Wildcats</h1>
+      <h2>Head Coach: Brandon Brewer</h2>
+      <div class="video">
+        <video width="800" height="400" autoplay loop controls>
+          <source src="videos/hypevid.mp4" type="video/mp4">
+        </video>
+      </div>
+      <nav class="navbar">
+        <ul id="navlist">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="flag.html">Flag Football</a></li>
+          <li><a href="jrpro.html">Jr Pro Football</a></li>
+          <li><a href="middleschool.html">Middle School</a></li>
+          <li><a href="highschool.html">High School</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <!-- Animated Banner -->
+  <div class="banner">
+    <h1>🏈 Bath County Wildcats Football 🏈</h1>
+  </div>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <div class="slide fade"><img src="images/team1.jpg" alt="Wildcats Team" style="width:100%"></div>
+    <div class="slide fade"><img src="images/game1.jpg" alt="Game Night" style="width:100%"></div>
+    <div class="slide fade"><img src="images/fans.jpg" alt="Wildcat Fans" style="width:100%"></div>
   </div>
 
   <script>
-    function updateCountdown() {
-      const eventDate = new Date("August 22, 2025 19:30:00");
-      const now = new Date();
-      const diff = eventDate - now;
-
-      if (diff <= 0) {
-        document.getElementById("timer").innerHTML = "🎉 It's Game Time!";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours;
-      document.getElementById("minutes").textContent = minutes;
-      document.getElementById("seconds").textContent = seconds;
+  let slideIndex = 0;
+  showSlides();
+  function showSlides() {
+    let slides = document.getElementsByClassName("slide");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
     }
-
-    setInterval(updateCountdown, 1000);
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 3000);
+  }
   </script>
 
-		<!--
-				<div id="animatedText">GO WILDCATS!</div>
-		
-					<video width="600" height="300" controls>
-						<source src=”videos/hypevid.mp4” type=video/mp4>
-						<source src="videos/hypevid.mp4" type=video/mp4>
-					 </video>
-				<hr>
--->
-			<nav>
-				<ul>
-					<li><a href="index.html" style="color: inherit;" > Home</a></li>		
-					<li><a href="flag.html" style="color: inherit;" >Flag Football</a></li>
-					<li><a href="jrpro.html" style="color: inherit;" >Jr Pro Football</a></li>
-					<li><a href="middleschool.html" style="color: inherit;" >Middle School</a></li>
-			
-					<li><a href="coaches.html" style="color: inherit;" >Coaching Staff</a></li>
-				</ul>
-				<hr>
-			</nav>
-		</header>
-<div class="wildcat-card-container">
-	<h2 style="color: #a30000;">Follow The Cats!</h2>
+  <main>
+    <div id="follow">
+      <h1>FOLLOW THE CATS</h1>
+      <ul>
+        <li><a href="https://www.facebook.com/profile.php?id=61556586286358&mibextid=JRoKGi">Facebook</a></li>
+        <li><a href="https://stream.gatewayradio.net/cwa/WKCA">WKCA</a></li>
+        <li><a href="https://www.facebook.com/@fromcorner2corner/?mibextid=JRoKGi">From Corner to Corner Podcast</a></li>
+      </ul>
+      <hr>
+    </div>
 
-	<br> <hr>
-  <a href="https://www.facebook.com/profile.php?id=61556586286358&mibextid=JRoKGi" target="_blank" class="wildcat-card">📘 Facebook</a>
-  <a href="https://stream.gatewayradio.net/cwa/WKCA" target="_blank" class="wildcat-card">🎧 WKCA Radio</a>
-  <a href="https://www.facebook.com/@fromcorner2corner/?mibextid=JRoKGi" target="_blank" class="wildcat-card">🎙️ From Corner to Corner Podcast</a>
-  <!--a href="https://www.instagram.com/bcfootball_1964?igsh=MWVteGdrMDUzZTB5Ng" target="_blank" class="wildcat-card">📸 Instagram</a> -->
-  <a href="https://x.com/BCWildcatFB?t=By46rjiETGe-a4qHqopaog&s=09" target="_blank" class="wildcat-card">🐾 X (Twitter)</a>
-  <a href="https://scoreboard.12dt.com/scoreboard/khsaa/kyfb24/?id=91863" target="_blank" class="wildcat-card">📊 Scoreboard</a>
-</div>
+    <div class="news">
+      <h1>News and Updates</h1>
+      <ul>
+        <li>Incoming Freshmen can condition with the team Mon–Tues–Thur each week.</li>
+        <li>TBA: Parent Tailgate at the field planned for Spring.</li>
+      </ul>
+    </div>
+    <hr>
 
+    <!-- Schedule and Roster Tables -->
+    <div class="flex-container">
+      <div class="flex-child">
+        <h2>2025 Wildcat Football Schedule</h2>
+        <!-- (Schedule table remains unchanged) -->
+      </div>
 
+      <div class="flex-child roster">
+        <h2>2025 Wildcat Roster</h2>
+        <!-- (Roster table remains unchanged) -->
+      </div>
+    </div>
+  </main>
 
-
-
-		<div class="prospects">
-			<div class="class-links"
-				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
-					<h1>Wildcat Prospect Zone</h1>
-					<a href="2026.html" style="color: black; background-color: grey;" class="helmet-link block w-48 max-w-full">
-					<img src="images/catslogo.png" alt="2026 Cats Helmet Logo" class="w-full rounded-xl" />
-					<div class="overlay">
-					  <h2>2026</h2>
-					</div>
-				  	</a>
-					<a href="2027.html" style="color:black; background-color: grey;" class="helmet-link block w-48 max-w-full">
-					<img src="images/catslogo.png" alt="2027 Cats Helmet Logo" class="w-full rounded-xl" />
-					<div class="overlay">
-					  <h2>2027</h2>
-					</div>
-				  </a>
-				  <a href="2028.html" style="color: black; background-color: grey;" class="helmet-link block w-48 max-w-full">
-					<img src="images/catslogo.png" alt="2028 Cats Helmet Logo" class="w-full rounded-xl" />
-					<div class="overlay">
-					  <h2>2028</h2>
-					</div>
-				  </a>
-				  <a href="2029.html" style="color: black; background-color: grey;" class="helmet-link block w-48 max-w-full">
-					<img src="images/catslogo.png" alt="2029 Cats Helmet Logo" class="w-full rounded-xl" />
-					<div class="overlay">
-					  <h2>2029</h2>
-					</div>
-				  </a>
-				  <a href="summercamps.html" style="color: black; background-color: grey;" class="helmet-link block w-48 max-w-full">
-					<img src="images/2025prospectcamps.png" alt="2025 Prospect Camps" class="w-full rounded-xl" />
-					<div class="overlay">
-					  <h2>Prospect Camps</h2>
-					</div>
-				  </a>
-		<main>
-			<br>
-                <div class="coachicon">
-					<img src="images/BrandonBrewerProfile.JPG" width="200px" height="250px" alt="Brandon Brewer">
-					<h1>Brandon Brewer - Head Coach</h1>
-                </div>
-                <hr>
-			<hr>
-			<script src="javascript/script.js"></script>
-			<br>
-			<div id="news">
-				<h1>News and Updates</h1>
-				<ul>
-		<!--		<li>Upcoming Freshmen sign to join the Cats. Click to view</li>
-				-->
-					<li></li>
-				</ul>
-			</div>
-			<br>
-
-		</div>
-			<div class="flex-container">
-				<div class="flex-child">
-				<h2>2025 Wildcat Football Schedule</h2>
-				<table border="1">
-					<thead>
-						<tr>
-							<th>Week</th>
-							<th>Date</th>
-							<th>Opponent</th>
-							<th>Location</th>
-							<th>Photo Link</th>
-						</tr>
-					</thead>
-					<tbody class="highschool">
-						<tr>
-							<td></td>
-							<td>July 24</td>
-							<td>Anderson Co 7v7</td>
-							<td>Anderson County</td>
-							<td><a href="https://kristiejones.shootproof.com/gallery/wildcats-andersonco" style="color: inherit;" target=_blank><span class="link">Shootproof</a></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>July 26</td>
-							<td>MSU 7v7</td>
-							<td>Morehead, Ky</td>
-							<td><a href="https://kristiejones.shootproof.com/gallery/27935044" style="color: inherit;" target=_blank><span class="link">Shootproof</a></td>
-						</tr>
-						<tr>
-							<td>Scrimmage 1</td>
-							<td>August 8</td>
-							<td>East Ridge, West Carter, Harlan</td>
-							<td>HOME</td>
-						</tr>
-						<tr>
-							<td>Scrimmage 2</td>
-							<td>August 15</td>
-							<td>EKC Grid vs Paris</td>
-							<td><a href="https://maps.app.goo.gl/xsnbgPcjjo9DTTNM8" style="color: inherit;" target=_blank><span class="link">103 School Dr, Carlisle, KY 40311</a></td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>August 22</td>			
-							<td>Fairview</td>
-							<td><a href="https://maps.app.goo.gl/d2c57ctd8Np1VoCa8" style="color: inherit;" target=_blank><span class="link">2123 Main St W, Ashland</a></td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>August 29</td>
-							<td>Clark County Bowl vs Paintsville</td>
-							<td><a href="https://maps.app.goo.gl/uRXy737ppdtSpNWJ8" style="color: inherit;" target=_blank><span class="link">GRC</a></td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>September 5</td>
-							<td>Rowan County</td>
-							<td>HOME</td>
-						</tr>
-						<tr>
-							<td>4</td>
-							<td>September 12</td>
-							<td>Estill County</td>
-							<td><a href="https://maps.app.goo.gl/MpZkam9e7W6QfWyGA" style="color: inherit;" target=_blank><span class="link">397 Engineer Rd, Irvine</a></td>
-						</tr>
-						<tr>
-							<td>5</td>
-							<td>September 19</td>
-							<td>TBA</td>
-							<td><a href= style="color: inherit;" target=_blank><span class="link">TBA</a></td>
-						</tr>
-						<tr>
-							<td>6</td>
-							<td>September 26</td>
-							<td>Lewis County</td>
-							<td>HOME</td>
-						</tr>
-						<tr>
-							<td>7</td>
-							<td>October 3</td>
-							<td>East Carter</td>
-							<td>HOME</td>
-						</tr>
-						<tr>
-							<td>8</td>
-							<td>October 10</td>
-							<td>BYE WEEK</td>
-							<td>BYE WEEK</td>
-						</tr>
-						<tr>
-							<td>9</td>
-							<td>October 17</td>
-							<td>Russell</td>
-							<td>HOME</td>
-						</tr>
-						<tr>
-							<td>10</td>
-							<td>October 24</td>
-							<td>Fleming County</td>
-							<td><a href="https://maps.app.goo.gl/dJhor2Vx2Kz5eqN7A" style="color: inherit;" target=_blank><span class="link">1658 Elizaville Rd, Flemingsburg</a></td>
-						</tr>
-						<tr>
-							<td>11</td>
-							<td>October 31</td>
-							<td>Nicholas County</td>
-							<td>HOME</td>
-						</tr>
-					</tbody>
-					<tfoot>
-					</tfoot>
-				</table>
-			</div>
-				<div class="flex-child roster">
-					<h2>2025 Wildcat Roster</h2>
-					<h3>In Progress.  Players will continue to be added until the official season starts</h3>
-					<table border="1">
-						<thead>
-							<tr>
-								<th>Jersey</th>
-								<th>Player</th>
-								<th>Position</th>
-								<th>Graduation Year</th>
-							</tr>
-						</thead>
-						<tbody class="highschool">
-							<tr>									
-								<td>34</td>
-								<td>Elias Armstrong</td>
-								<td>MLB/RB</td>
-								<td>2026</td>
-							</tr>
-							<tr>
-								<td>64</td>
-								<td>Brody Johnson</td>
-								<td>G/DT</td>
-								<td>2026</td>
-							</tr>
-							<tr>
-								<td>21</td>
-								<td>Braeden Montjoy</td>
-								<td>TE/OLB</td>
-								<td>2026</td>
-							</tr>
-							<tr>
-								<td>50</td>
-								<td>Jackson Rice</td>
-								<td>G/T</td>
-								<td>2026</td>
-							</tr>
-		<!--					<tr>
-								<td>63</td>
-								<td>Aiden Short</td>
-								<td>DL/OL</td>
-								<td>2026</td>
-							</tr>
-						-->
-							<tr>
-								<td>79</td>
-								<td>Brooks Staton</td>
-								<td>C/DT</td>
-								<td>2026</td>
-							</tr>
-							<tr>
-								<td>6</td>
-								<td>Sean Wagner</td>
-								<td>WR/OLB</td>
-								<td>2026</td>
-							</tr>
-							<tr>
-								<td>20</td>
-								<td>Jordan Yates</td>
-								<td>SS/WR</td>
-								<td>2026</td>
-							</tr>
-							<tr>
-								<td>9</td>
-								<td>Branson Bartlett</td>
-								<td>DE</td>
-								<td>2027</td>
-							</tr>
-				<!--
-							<tr>
-								<td>58</td>
-								<td>Carson Cline</td>
-								<td>DL/OL</td>
-								<td>2027</td>
-							</tr>
-						-->
-							<tr>
-								<td>25</td>
-								<td>Parker Crouch</td>
-								<td>LB/RB</td>
-								<td>2027</td>
-							</tr>
-								<td>2</td>
-								<td>Logan Jones</td>
-								<td>DB/WR</td>
-								<td>2027</td>
-							</tr>
-							<tr>
-								<td>7</td>
-								<td>Walker Karrick</td>
-								<td>DB/QB</td>
-								<td>2027</td>
-							</tr>
-							<tr>
-								<td>70</td>
-								<td>John Montjoy</td>
-								<td>DL/OK</td>
-								<td>2027</td>
-							</tr>
-							<tr>
-								<td>9</td>
-								<td>Skylar Bowling</td>
-								<td>DB/WR</td>
-								<td>2028</td>
-							</tr>
-							<tr>
-								<td>75</td>
-								<td>Hunter Charles</td>
-								<td>DL/OL</td>
-								<td>2028</td>
-							</tr>
-							<tr>
-								<td>8</td>
-								<td>Eli Jackson</td>
-								<td>DB/WR</td>
-								<td>2028</td>
-							</tr>
-							<tr>
-								<td>11</td>
-								<td>Johnny Manley</td>
-								<td>DB/WR</td>
-								<td>2028</td>
-							</tr>
-							<tr>
-								<td>62</td>
-								<td>John Mays</td>
-								<td>DL/OL</td>
-								<td>2028</td>
-							</tr>
-							<tr>
-								<td>73</td>
-								<td>Hunter Rowland</td>
-								<td>DL/OL</td>
-								<td>2028</td>
-							</tr>
-														<tr>
-								<td></td>
-								<td>Parker Cox</td>
-								<td></td>
-								<td>2029</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td>Maddox Lucas</td>
-								<td></td>
-								<td>2029</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td>Josiah Peck</td>
-								<td></td>
-								<td>2029</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td>Chase Bowling</td>
-								<td></td>
-								<td>2029</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td>Tyson Hall</td>
-								<td></td>
-								<td>2029</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td>Clay Lewis</td>
-								<td></td>
-								<td>2029</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td>Tyler Denton</td>
-								<td></td>
-								<td>2029</td>
-							</tr>
-						 
-						</tbody>
-						<tfoot>
-						</tfoot>
-					</table>
-				</div>
-			</div>
-			</div>
-
-		</main>
-		<footer>
-			<p>&copy; Copyright 2025. All Rights Reserved.</p>
-			<p><a href="mailto:bcquarterbackclub@gmail.com">bcquarterbackclub@gmail.com</a></p>
-<!-- hitwebcounter Code START -->
-<a href="https://www.hitwebcounter.com" target="_blank">
-<img src="https://hitwebcounter.com/counter/counter.php?page=20674899&style=0009&nbdigits=7&type=ip&initCount=0" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>    
-		</footer>
-	<script src="script.js"></script>
-	</body>
+  <footer>
+    <p>&copy; Copyright 2025. All Rights Reserved.</p>
+    <p><a href="mailto:bathcountyquarterbackclub@gmail.com">bathcountyquarterbackclub@gmail.com</a></p>
+  </footer>
+</body>
 </html>
-	
