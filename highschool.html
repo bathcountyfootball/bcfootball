@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<!--
-  Student Name: Kristie Jones
-  File Name: highschool.html
--->
 <html lang="en">
 <head>
-  <title>Bath County Quarterback Club: Home</title>
+  <title>Bath County Wildcats Football</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-  <header>
-    <div id="header">
-      <h1>Bath County High School Wildcats</h1>
-      <h2>Head Coach: Brandon Brewer</h2>
-      <div class="video">
-        <video width="800" height="400" autoplay loop controls>
-          <source src="videos/hypevid.mp4" type="video/mp4">
-        </video>
-      </div>
-      <nav class="navbar">
-        <ul id="navlist">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="flag.html">Flag Football</a></li>
-          <li><a href="jrpro.html">Jr Pro Football</a></li>
-          <li><a href="middleschool.html">Middle School</a></li>
-          <li><a href="highschool.html">High School</a></li>
-        </ul>
-      </nav>
+
+  <!-- PARALLAX STADIUM LIGHTS + FOG -->
+  <div class="stadium-lights"></div>
+  <div class="fog-layer"></div>
+
+  <!-- HEARTBEAT BC BADGE -->
+  <div class="bc-badge"></div>
+
+  <header class="hero-header">
+
+    <!-- 3D ROTATING LOGO -->
+    <div class="logo-3d"></div>
+
+    <h1 class="glow-title">Bath County High School Wildcats</h1>
+    <h2 class="subhead">Head Coach: Brandon Brewer</h2>
+
+    <!-- CINEMATIC INTRO ANIMATION -->
+    <div class="intro-animation">
+      <div class="intro-logo"></div>
+      <div class="intro-dust"></div>
+      <h1 class="intro-text">FEAR THE RED</h1>
     </div>
+
+    <div class="video">
+      <video width="800" height="400" autoplay loop muted>
+        <source src="videos/hypevid.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <nav class="navbar">
+      <ul id="navlist">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="flag.html">Flag Football</a></li>
+        <li><a href="jrpro.html">Jr Pro Football</a></li>
+        <li><a href="middleschool.html">Middle School</a></li>
+        <li><a href="highschool.html" class="active">High School</a></li>
+      </ul>
+    </nav>
   </header>
+
+  <!-- ESPN-STYLE SCROLLING TICKER -->
+  <div class="ticker">
+    <div class="ticker__content">
+      Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Protect the Den • Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Protect the Den
+    </div>
+  </div>
 
   <!-- Animated Banner -->
   <div class="banner">
@@ -40,63 +62,66 @@
 
   <!-- Slideshow -->
   <div class="slideshow-container">
-    <div class="slide fade"><img src="images/team1.jpg" alt="Wildcats Team" style="width:100%"></div>
-    <div class="slide fade"><img src="images/game1.jpg" alt="Game Night" style="width:100%"></div>
-    <div class="slide fade"><img src="images/fans.jpg" alt="Wildcat Fans" style="width:100%"></div>
+    <div class="slide fade"><img src="images/team1.jpg" alt=""></div>
+    <div class="slide fade"><img src="images/game1.jpg" alt=""></div>
+    <div class="slide fade"><img src="images/fans.jpg" alt=""></div>
   </div>
 
   <script>
-  let slideIndex = 0;
-  showSlides();
-  function showSlides() {
-    let slides = document.getElementsByClassName("slide");
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    let slideIndex = 0;
+    showSlides();
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 3000);
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
-    slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 3000);
-  }
   </script>
 
   <main>
-    <div id="follow">
-      <h1>FOLLOW THE CATS</h1>
-      <ul>
+
+    <div class="claw-divider"></div>
+
+    <section class="card">
+      <h1 class="section-title">FOLLOW THE CATS</h1>
+      <ul class="follow-links">
         <li><a href="https://www.facebook.com/profile.php?id=61556586286358&mibextid=JRoKGi">Facebook</a></li>
         <li><a href="https://stream.gatewayradio.net/cwa/WKCA">WKCA</a></li>
         <li><a href="https://www.facebook.com/@fromcorner2corner/?mibextid=JRoKGi">From Corner to Corner Podcast</a></li>
       </ul>
-      <hr>
-    </div>
+    </section>
 
-    <div class="news">
-      <h1>News and Updates</h1>
-      <ul>
+    <div class="claw-divider"></div>
+
+    <section class="card">
+      <h1 class="section-title">News and Updates</h1>
+      <ul class="news-list">
         <li>Incoming Freshmen can condition with the team Mon–Tues–Thur each week.</li>
         <li>TBA: Parent Tailgate at the field planned for Spring.</li>
       </ul>
-    </div>
-    <hr>
+    </section>
 
-    <!-- Schedule and Roster Tables -->
+    <div class="claw-divider"></div>
+
     <div class="flex-container">
-      <div class="flex-child">
-        <h2>2025 Wildcat Football Schedule</h2>
-        <!-- (Schedule table remains unchanged) -->
+      <div class="flex-child card">
+        <h2 class="section-title">2025 Wildcat Football Schedule</h2>
       </div>
 
-      <div class="flex-child roster">
-        <h2>2025 Wildcat Roster</h2>
-        <!-- (Roster table remains unchanged) -->
+      <div class="flex-child card">
+        <h2 class="section-title">2025 Wildcat Roster</h2>
       </div>
     </div>
+
   </main>
 
   <footer>
-    <p>&copy; Copyright 2025. All Rights Reserved.</p>
-    <p><a href="mailto:bathcountyquarterbackclub@gmail.com">bathcountyquarterbackclub@gmail.com</a></p>
+    <p>&copy; 2025 Bath County Quarterback Club</p>
   </footer>
+
 </body>
 </html>
