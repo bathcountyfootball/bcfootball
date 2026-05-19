@@ -217,7 +217,6 @@ body::before {
 .claw-divider {
   width: 100%;
   height: 60px;
-  background: url('../images/claw.png') center/contain no-repeat;
   margin: 40px 0;
 }
 
