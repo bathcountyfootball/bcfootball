@@ -207,13 +207,11 @@
   </div>
 
   <script>
-    // CONFIG
     const GITHUB_USER = "kjones0401";
     const GITHUB_REPO = "bcfootball";
     const SCHEDULE_PATH = "data/schedule.json";
     const ROSTER_PATH = "data/roster.json";
 
-    // Parsed data cache
     const parsedData = {
       schedule: null,
       roster: null
@@ -234,9 +232,7 @@
         return;
       }
 
-      const file = fileInput.files[0];
-
-      Papa.parse(file, {
+      Papa.parse(fileInput.files[0], {
         header: true,
         skipEmptyLines: true,
         complete: function(results) {
@@ -250,32 +246,20 @@
           statusEl.textContent = "CSV parsed successfully. Preview below.";
           statusEl.classList.add("ok");
           renderPreview(previewEl, results.data);
-        },
-        error: function(err) {
-          statusEl.textContent = "Error parsing CSV: " + err.message;
-          statusEl.classList.add("error");
         }
       });
     }
 
     function renderPreview(container, data) {
-      if (!data || data.length === 0) {
-        container.innerHTML = "<p>No data to preview.</p>";
-        return;
-      }
-
       const columns = Object.keys(data[0]);
       let html = "<table><thead><tr>";
-      columns.forEach(col => {
-        html += "<th>" + escapeHtml(col) + "</th>";
-      });
+
+      columns.forEach(col => html += `<th>${col}</th>`);
       html += "</tr></thead><tbody>";
 
       data.forEach(row => {
         html += "<tr>";
-        columns.forEach(col => {
-          html += "<td>" + escapeHtml(row[col] ?? "") + "</td>";
-        });
+        columns.forEach(col => html += `<td>${row[col] || ""}</td>`);
         html += "</tr>";
       });
 
@@ -283,22 +267,10 @@
       container.innerHTML = html;
     }
 
-    function escapeHtml(str) {
-      return String(str)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
-
     async function publishToGitHub(type) {
       const token = document.getElementById("githubToken").value.trim();
       const commitMessageInput = document.getElementById("commitMessage").value.trim();
       const statusEl = document.getElementById(type + "Status");
-
-      statusEl.textContent = "";
-      statusEl.className = "status";
 
       if (!token) {
         statusEl.textContent = "GitHub token is required.";
@@ -307,7 +279,7 @@
       }
 
       if (!parsedData[type]) {
-        statusEl.textContent = "No parsed data found. Please upload and preview a CSV first.";
+        statusEl.textContent = "No parsed data found. Upload and preview a CSV first.";
         statusEl.classList.add("error");
         return;
       }
@@ -316,7 +288,7 @@
       const commitMessage = commitMessageInput || `Update ${type} data`;
 
       try {
-        statusEl.textContent = "Preparing to publish to GitHub...";
+        statusEl.textContent = "Publishing to GitHub...";
         const existingFile = await getGitHubFile(path, token);
         const sha = existingFile ? existingFile.sha : null;
 
@@ -325,11 +297,9 @@
 
         const body = {
           message: commitMessage,
-          content: contentBase64
+          content: contentBase64,
+          sha: sha || undefined
         };
-        if (sha) {
-          body.sha = sha;
-        }
 
         const res = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${path}`, {
           method: "PUT",
@@ -340,15 +310,13 @@
           body: JSON.stringify(body)
         });
 
-        if (!res.ok) {
-          const errText = await res.text();
-          throw new Error("GitHub API error: " + errText);
-        }
+        if (!res.ok) throw new Error(await res.text());
 
-        statusEl.textContent = `Successfully published ${type} to ${path}.`;
+        statusEl.textContent = `Successfully published ${type}.`;
         statusEl.classList.add("ok");
+
       } catch (err) {
-        statusEl.textContent = "Error publishing to GitHub: " + err.message;
+        statusEl.textContent = "Error: " + err.message;
         statusEl.classList.add("error");
       }
     }
@@ -361,15 +329,8 @@
         }
       });
 
-      if (res.status === 404) {
-        return null; // file doesn't exist yet
-      }
-
-      if (!res.ok) {
-        const txt = await res.text();
-        throw new Error("Error fetching existing file: " + txt);
-      }
-
+      if (res.status === 404) return null;
+      if (!res.ok) throw new Error(await res.text());
       return await res.json();
     }
   </script>
