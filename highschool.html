@@ -4,14 +4,16 @@
   <title>Bath County Wildcats Football</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=10">
 </head>
 
 <body>
 
+  <!-- Background Layers -->
   <div class="stadium-lights"></div>
   <div class="fog-layer"></div>
 
+  <!-- BC Badge -->
   <div class="bc-badge"></div>
 
   <header class="hero-header">
@@ -21,8 +23,14 @@
     <h1 class="glow-title">Bath County High School Wildcats</h1>
     <h2 class="subhead">Head Coach: Brandon Brewer</h2>
 
+    <div class="intro-animation">
+      <div class="intro-logo"></div>
+      <div class="intro-dust"></div>
+      <h1 class="intro-text">FEAR THE RED</h1>
+    </div>
 
-    <!--<div class="video">
+    <!-- VIDEO
+    <div class="video">
       <video id="hypeVideo" width="800" height="400" autoplay loop playsinline>
         <source src="videos/hypevid.mp4" type="video/mp4">
       </video>
@@ -41,51 +49,24 @@
     </nav>
   </header>
 
+  <!-- TICKER -->
   <div class="ticker">
     <div class="ticker__content">
       Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Defend the Hill • Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Defend the Hill
     </div>
   </div>
 
+  <!-- Banner -->
   <div class="banner">
     <h1>🏈 Bath County Wildcats Football 🏈</h1>
   </div>
 
+  <!-- Slideshow -->
   <div class="slideshow-container">
     <div class="slide fade"><img src="images/team1.jpg" alt=""></div>
     <div class="slide fade"><img src="images/game1.jpg" alt=""></div>
     <div class="slide fade"><img src="images/fans.jpg" alt=""></div>
   </div>
-
-  <script>
-    let slideIndex = 0;
-    showSlides();
-    function showSlides() {
-      let slides = document.getElementsByClassName("slide");
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}
-      slides[slideIndex-1].style.display = "block";
-      setTimeout(showSlides, 3000);
-    }
-
-    const video = document.getElementById("hypeVideo");
-    const unmuteBtn = document.getElementById("unmuteBtn");
-
-    video.muted = false;
-
-    video.play().catch(() => {
-      unmuteBtn.style.display = "block";
-    });
-
-    unmuteBtn.addEventListener("click", () => {
-      video.muted = false;
-      video.play();
-      unmuteBtn.style.display = "none";
-    });
-  </script>
 
   <main>
 
@@ -100,7 +81,7 @@
       </ul>
     </section>
 
-    <div class="claw-divider"></div>
+
 
     <section class="card">
       <h1 class="section-title">News and Updates</h1>
@@ -110,18 +91,21 @@
       </ul>
     </section>
 
-    <div class="claw-divider"></div>
 
+
+    <!-- CARD LAYOUT FOR SCHEDULE + ROSTER -->
     <div class="flex-container">
+
       <div class="flex-child card">
         <h2 class="section-title">2025 Wildcat Football Schedule</h2>
-        <div id="scheduleTable"></div>
+        <div id="scheduleCards" class="card-grid"></div>
       </div>
 
       <div class="flex-child card">
         <h2 class="section-title">2025 Wildcat Roster</h2>
-        <div id="rosterTable"></div>
+        <div id="rosterCards" class="card-grid"></div>
       </div>
+
     </div>
 
   </main>
@@ -129,6 +113,75 @@
   <footer>
     <p>&copy; 2025 Bath County Quarterback Club</p>
   </footer>
+
+  <!-- JS -->
+  <script>
+    // Slideshow
+    let slideIndex = 0;
+    showSlides();
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 3000);
+    }
+
+    // Video Sound
+    const video = document.getElementById("hypeVideo");
+    const unmuteBtn = document.getElementById("unmuteBtn");
+
+    video.muted = false;
+    video.play().catch(() => unmuteBtn.style.display = "block");
+
+    unmuteBtn.addEventListener("click", () => {
+      video.muted = false;
+      video.play();
+      unmuteBtn.style.display = "none";
+    });
+
+    // Load Schedule Cards
+    fetch("data/schedule.json")
+      .then(res => res.json())
+      .then(data => renderScheduleCards(data));
+
+    function renderScheduleCards(data) {
+      const container = document.getElementById("scheduleCards");
+      container.innerHTML = "";
+      data.forEach(row => {
+        const card = document.createElement("div");
+        card.className = "info-card";
+        card.innerHTML = `
+          <h3>${row.Week || row.Game || "Game"}</h3>
+          <p><strong>Date:</strong> ${row.Date || "TBA"}</p>
+          <p><strong>Opponent:</strong> ${row.Opponent || "TBA"}</p>
+          <p><strong>Location:</strong> ${row.Location || "TBA"}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Load Roster Cards
+    fetch("data/roster.json")
+      .then(res => res.json())
+      .then(data => renderRosterCards(data));
+
+    function renderRosterCards(data) {
+      const container = document.getElementById("rosterCards");
+      container.innerHTML = "";
+      data.forEach(row => {
+        const card = document.createElement("div");
+        card.className = "info-card";
+        card.innerHTML = `
+          <h3>#${row.Jersey || "?"} — ${row.Player || "Player"}</h3>
+          <p><strong>Position:</strong> ${row.Position || "TBA"}</p>
+          <p><strong>Graduation:</strong> ${row["Graduation Year"] || "TBA"}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
 
 </body>
 </html>
