@@ -1,162 +1,247 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bath County Wildcats Football</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css?v=12">
-</head>
+/* GLOBAL */
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #1a1a1a, #2b2b2b, #1a1a1a);
+  color: white;
+  font-family: 'Arial Black', sans-serif;
+  overflow-x: hidden;
+  background-attachment: fixed;
+}
 
-<body>
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/grain.png') repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -5;
+}
 
-  <!-- Background Layers -->
-  <div class="stadium-lights"></div>
-  <div class="fog-layer"></div>
+/* PARALLAX STADIUM LIGHTS */
+.stadium-lights {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url('../images/stadiumlights.jpg') center/cover no-repeat;
+  opacity: 0.25;
+  z-index: -3;
+  filter: brightness(0.7) contrast(1.2);
+}
 
-  <!-- BC Badge -->
-  <div class="bc-badge"></div>
+/* FOG EFFECT */
+.fog-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url('../images/fog.png') repeat;
+  opacity: 0.35;
+  animation: fogMove 40s linear infinite;
+  z-index: -2;
+}
 
-  <header class="hero-header">
+@keyframes fogMove {
+  from { background-position: 0 0; }
+  to { background-position: 2000px 0; }
+}
 
-    <div class="logo-3d"></div>
+/* HEARTBEAT BC BADGE */
+.bc-badge {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 90px;
+  height: 90px;
+  background: url('../images/bcbadge.png') center/contain no-repeat;
+  animation: heartbeat 1.5s infinite;
+  z-index: 10;
+}
 
-    <h1 class="glow-title">Bath County High School Wildcats</h1>
-    <h2 class="subhead">Head Coach: Brandon Brewer</h2>
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.15); }
+  60% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
 
-    <!-- Removed intro dust + video -->
+/* 3D ROTATING LOGO */
+.logo-3d {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 10px;
+  background: url('../images/wildcatlogo.png') center/contain no-repeat;
+  animation: spinLogo 12s linear infinite;
+}
 
-    <nav class="navbar">
-      <ul id="navlist">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="flag.html">Flag Football</a></li>
-        <li><a href="jrpro.html">Jr Pro Football</a></li>
-        <li><a href="middleschool.html">Middle School</a></li>
-        <li><a href="highschool.html" class="active">High School</a></li>
-      </ul>
-    </nav>
-  </header>
+@keyframes spinLogo {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
 
-  <!-- TICKER -->
-  <div class="ticker">
-    <div class="ticker__content">
-      Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Defend the Hill • Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Defend the Hill
-    </div>
-  </div>
+/* HEADER */
+.hero-header {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  border-bottom: 4px solid #ff0000;
+  backdrop-filter: blur(4px);
+}
 
-  <!-- Banner -->
-  <div class="banner">
-    <h1>🏈 Bath County Wildcats Football 🏈</h1>
-  </div>
+.glow-title {
+  font-size: 3rem;
+  color: #ff0000;
+  text-shadow: 0 0 20px #ff0000, 0 0 35px white;
+  animation: glowPulse 2.5s infinite alternate;
+}
 
-  <!-- Slideshow -->
-  <div class="slideshow-container">
-    <div class="slide fade"><img src="images/team1.jpg" alt=""></div>
-    <div class="slide fade"><img src="images/game1.jpg" alt=""></div>
-    <div class="slide fade"><img src="images/fans.jpg" alt=""></div>
-  </div>
+@keyframes glowPulse {
+  from { text-shadow: 0 0 10px #ff0000; }
+  to { text-shadow: 0 0 35px white; }
+}
 
-  <main>
+.subhead {
+  color: #ccc;
+  margin-top: -10px;
+}
 
-    <!-- Removed claw/scratch divider -->
-    <br><br>
+/* NAVBAR */
+#navlist {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
 
-    <section class="card">
-      <h1 class="section-title">FOLLOW THE CATS</h1>
-      <ul class="follow-links">
-        <li><a href="https://www.facebook.com/profile.php?id=61556586286358&mibextid=JRoKGi">Facebook</a></li>
-        <li><a href="https://stream.gatewayradio.net/cwa/WKCA">WKCA</a></li>
-        <li><a href="https://www.facebook.com/@fromcorner2corner/?mibextid=JRoKGi">From Corner to Corner Podcast</a></li>
-      </ul>
-    </section>
+#navlist a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
 
-    <br><br>
+#navlist a:hover,
+#navlist .active {
+  background: #ff0000;
+  transform: scale(1.1);
+}
 
-    <section class="card">
-      <h1 class="section-title">News and Updates</h1>
-      <ul class="news-list">
-        <li>Incoming Freshmen can condition with the team Mon–Tues–Thur each week.</li>
-        <li>TBA: Parent Tailgate at the field planned for Spring.</li>
-      </ul>
-    </section>
+/* TICKER */
+.ticker {
+  width: 100%;
+  background: #111;
+  border-top: 3px solid #ff0000;
+  border-bottom: 3px solid #ff0000;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
-    <br><br>
+.ticker__content {
+  display: inline-block;
+  padding: 10px 0;
+  animation: tickerMove 18s linear infinite;
+  font-size: 1.2rem;
+  color: #ff0000;
+}
 
-    <!-- CARD LAYOUT FOR SCHEDULE + ROSTER -->
-    <div class="flex-container">
+@keyframes tickerMove {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
 
-      <div class="flex-child card">
-        <h2 class="section-title">2025 Wildcat Football Schedule</h2>
-        <div id="scheduleCards" class="card-grid"></div>
-      </div>
+/* SLIDESHOW */
+.slideshow-container {
+  max-width: 900px;
+  margin: 30px auto;
+  border: 4px solid #ff0000;
+  box-shadow: 0 0 25px #ff0000;
+}
 
-      <div class="flex-child card">
-        <h2 class="section-title">2025 Wildcat Roster</h2>
-        <div id="rosterCards" class="card-grid"></div>
-      </div>
+.fade {
+  animation: fadeEffect 1.5s;
+}
 
-    </div>
+@keyframes fadeEffect {
+  from { opacity: .4; }
+  to { opacity: 1; }
+}
 
-  </main>
+/* CARDS */
+.card {
+  background: rgba(20,20,20,0.85);
+  border-left: 5px solid #ff0000;
+  padding: 20px;
+  margin: 25px auto;
+  width: 85%;
+  box-shadow: 0 0 15px #333;
+  border-radius: 6px;
+  backdrop-filter: blur(3px);
+}
 
-  <footer>
-    <p>&copy; 2025 Bath County Quarterback Club</p>
-  </footer>
+.section-title {
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000;
+}
 
-  <!-- JS -->
-  <script>
-    // Slideshow
-    let slideIndex = 0;
-    showSlides();
-    function showSlides() {
-      let slides = document.getElementsByClassName("slide");
-      for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
-      slideIndex++;
-      if (slideIndex > slides.length) slideIndex = 1;
-      slides[slideIndex-1].style.display = "block";
-      setTimeout(showSlides, 3000);
-    }
+/* CARD GRID */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
 
-    // Load Schedule Cards
-    fetch("data/schedule.json")
-      .then(res => res.json())
-      .then(data => renderScheduleCards(data));
+/* INDIVIDUAL INFO CARDS */
+.info-card {
+  background: rgba(30, 30, 30, 0.9);
+  border-left: 5px solid #ff0000;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    function renderScheduleCards(data) {
-      const container = document.getElementById("scheduleCards");
-      container.innerHTML = "";
-      data.forEach(row => {
-        const card = document.createElement("div");
-        card.className = "info-card";
-        card.innerHTML = `
-          <h3>${row.Week || row.Game || "Game"}</h3>
-          <p><strong>Date:</strong> ${row.Date || "TBA"}</p>
-          <p><strong>Opponent:</strong> ${row.Opponent || "TBA"}</p>
-          <p><strong>Location:</strong> ${row.Location || "TBA"}</p>
-        `;
-        container.appendChild(card);
-      });
-    }
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 15px #ff0000;
+}
 
-    // Load Roster Cards
-    fetch("data/roster.json")
-      .then(res => res.json())
-      .then(data => renderRosterCards(data));
+.info-card h3 {
+  margin-top: 0;
+  color: #ff0000;
+  text-shadow: 0 0 8px #ff0000;
+}
 
-    function renderRosterCards(data) {
-      const container = document.getElementById("rosterCards");
-      container.innerHTML = "";
-      data.forEach(row => {
-        const card = document.createElement("div");
-        card.className = "info-card";
-        card.innerHTML = `
-          <h3>#${row.Jersey || "?"} — ${row.Player || "Player"}</h3>
-          <p><strong>Position:</strong> ${row.Position || "TBA"}</p>
-          <p><strong>Graduation:</strong> ${row["Graduation Year"] || "TBA"}</p>
-        `;
-        container.appendChild(card);
-      });
-    }
-  </script>
+.info-card p {
+  margin: 5px 0;
+  color: #ddd;
+}
 
-</body>
-</html>
+/* FLEX */
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.flex-child {
+  width: 45%;
+  min-width: 300px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  border-top: 4px solid #ff0000;
+}
