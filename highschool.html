@@ -117,7 +117,7 @@
     }
 
     // Load Schedule Cards
-    fetch("data/schedule.json")
+    fetch("data/schedule.json?v=17")
       .then(res => res.json())
       .then(data => renderScheduleCards(data));
 
@@ -138,7 +138,7 @@
     }
 
     // Load Roster Cards
-    fetch("data/roster.json")
+    fetch("data/roster.json?v=17")
       .then(res => res.json())
       .then(data => renderRosterCards(data));
 
