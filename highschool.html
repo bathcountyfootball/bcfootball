@@ -4,41 +4,35 @@
   <title>Bath County Wildcats Football</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styleshighschool.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 
 <body>
 
-  <!-- PARALLAX STADIUM LIGHTS + FOG -->
   <div class="stadium-lights"></div>
   <div class="fog-layer"></div>
 
-  <!-- HEARTBEAT BC BADGE -->
   <div class="bc-badge"></div>
 
   <header class="hero-header">
 
-    <!-- 3D ROTATING LOGO -->
     <div class="logo-3d"></div>
 
     <h1 class="glow-title">Bath County High School Wildcats</h1>
     <h2 class="subhead">Head Coach: Brandon Brewer</h2>
 
-    <!-- CINEMATIC INTRO ANIMATION -->
     <div class="intro-animation">
       <div class="intro-logo"></div>
-      <!--<div class="intro-dust"></div>
-      <h1 class="intro-text">FEAR THE RED</h1>-->
+      <div class="intro-dust"></div>
+      <h1 class="intro-text">FEAR THE RED</h1>
     </div>
 
-    <!-- VIDEO WITH SOUND -->
-    <!--<div class="video">
+    <div class="video">
       <video id="hypeVideo" width="800" height="400" autoplay loop playsinline>
         <source src="videos/hypevid.mp4" type="video/mp4">
       </video>
-    </div>-->
+    </div>
 
-    <!-- TAP TO UNMUTE BUTTON -->
     <button id="unmuteBtn">Tap to Enable Sound</button>
 
     <nav class="navbar">
@@ -52,19 +46,16 @@
     </nav>
   </header>
 
-  <!-- ESPN-STYLE SCROLLING TICKER -->
   <div class="ticker">
     <div class="ticker__content">
       Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Defend the Hill • Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Defend the Hill
     </div>
   </div>
 
-  <!-- Animated Banner -->
   <div class="banner">
     <h1>🏈 Bath County Wildcats Football 🏈</h1>
   </div>
 
-  <!-- Slideshow -->
   <div class="slideshow-container">
     <div class="slide fade"><img src="images/team1.jpg" alt=""></div>
     <div class="slide fade"><img src="images/game1.jpg" alt=""></div>
@@ -72,7 +63,6 @@
   </div>
 
   <script>
-    // SLIDESHOW
     let slideIndex = 0;
     showSlides();
     function showSlides() {
@@ -86,7 +76,6 @@
       setTimeout(showSlides, 3000);
     }
 
-    // VIDEO SOUND CONTROL
     const video = document.getElementById("hypeVideo");
     const unmuteBtn = document.getElementById("unmuteBtn");
 
