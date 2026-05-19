@@ -1,477 +1,237 @@
-/*
-Student Name: Kristie Jones 
-File Name: styles.css
-*/
-
-/* CSS Reset */
-body, header, nav, main, footer, img, h1, h3, ul, aside, figure, figcaption
-
-/* Style rules for body */
-body{
-    background-color: rgb(246, 243, 243);
+/* GLOBAL */
+body {
+  margin: 0;
+  background: #0a0a0a;
+  color: white;
+  font-family: 'Arial Black', sans-serif;
+  overflow-x: hidden;
 }
 
-
-/* Style rules for header */
-header{
-    border: solid red;
-    text-align: center;
-    background-color: black;
-    color: red;
+/* PARALLAX STADIUM LIGHTS */
+.stadium-lights {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url('../images/stadiumlights.jpg') center/cover no-repeat;
+  opacity: 0.25;
+  z-index: -3;
+  filter: brightness(0.7) contrast(1.2);
 }
 
-header video{
-    background-color: red;
-    min-width: 100%;
-    min-height: 100%;
+/* FOG EFFECT */
+.fog-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url('../images/fog.png') repeat;
+  opacity: 0.35;
+  animation: fogMove 40s linear infinite;
+  z-index: -2;
 }
 
-header img{
-    width: 25%;
-    height: 25%;
-    border: solid white;
+@keyframes fogMove {
+  from { background-position: 0 0; }
+  to { background-position: 2000px 0; }
 }
 
-/* Style rules for nav */
-nav{
-    background-color: white;
+/* HEARTBEAT BC BADGE */
+.bc-badge {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 90px;
+  height: 90px;
+  background: url('../images/bcbadge.png') center/contain no-repeat;
+  animation: heartbeat 1.5s infinite;
+  z-index: 10;
 }
 
-nav ul{
-    background: black;
-    list-style-type: none;
-    padding: 20px;
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.15); }
+  60% { transform: scale(1); }
+  100% { transform: scale(1); }
 }
 
-
-
-nav a:hover{
-    background-color: white;
-    color: red;
+/* 3D ROTATING LOGO */
+.logo-3d {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 10px;
+  background: url('../images/wildcatlogo.png') center/contain no-repeat;
+  animation: spinLogo 12s linear infinite;
 }
 
-nav li{
-    display: inline;
-    padding: 5px 20px;
-    font-size: x-large;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    border-style: solid;
-    text-align: center;
+@keyframes spinLogo {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
 }
 
-/* Style rules for prospects nav */
-.prospects{
-    background-color: rgb(235, 17, 17);
+/* CINEMATIC INTRO */
+.intro-animation {
+  position: relative;
+  height: 200px;
+  margin-bottom: 20px;
 }
 
-.prospects ul{
-    background: rgb(241, 3, 3);
-    list-style-type: none;
-    padding: 20px;
+.intro-logo {
+  width: 200px;
+  height: 200px;
+  background: url('../images/wildcatlogo.png') center/contain no-repeat;
+  margin: 0 auto;
+  animation: slamDown 1.2s ease-out forwards;
+  opacity: 0;
 }
 
-.prospects a:visited{
-    color: white;
-
+@keyframes slamDown {
+  0% { transform: translateY(-200px) scale(2); opacity: 0; }
+  80% { transform: translateY(20px) scale(1); opacity: 1; }
+  100% { transform: translateY(0); }
 }
 
-.prospects a:hover{
-    background-color: white;
-    color: red;
+.intro-dust {
+  width: 100%;
+  height: 40px;
+  background: url('../images/dust.png') center/contain no-repeat;
+  opacity: 0;
+  animation: dustBurst 1.2s ease-out 0.8s forwards;
 }
 
-.prospects li{
-    display: flow-root;
-    padding: 5px 20px;
-    font-size: x-large;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    border-style: solid;
-    text-align: center;
-    color: white;
+@keyframes dustBurst {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1.2); }
 }
 
-/* Style for images */
-
-.column img:hover{
-    height: 800px;
-    width: 800px;
-}
-/* Style rules for main */
-#coachinfo {
-    text-align: center;
-    background-color: rgb(167, 166, 166);
-}
-#coaches {
-    color: rgb(12, 1, 1);
-    text-align: center;
-    font-size: 30px;
-    background-color: black
-}
-main img{
-    max-width: 300px;
-    max-height: 400px;
-}
-main .coachinfo img{
-    max-width: 300px;
-    max-height: 400px;
-
-}
-
-
-#coachinfo h1{
-    background-color: white;
-    font: x-large;
-    font-family: cursive;
-}
-#news{
-    color: black;
-    border: solid white;
-    border-style: inset;
-}
-
-#news li{
-    list-style-type: circle;
-    font-size: x-large;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-/* Style rules for Follow the Cats */
-
-
-#followheader{
-    max-height: 100px;
-    width: 100%;
-    border-style: solid;
-    border-color: black;
-    margin: 0;
-    position: left;
-    box-shadow: 10px 10px 5px;
-    animation: mymove 12s;
-    animation-fill-mode: forwards;
-    text-align: center;
-    left: 120px;
-    transform: skewX(250);
-}
-
-@keyframes mymove {
-    from{top: 50px}
-    to{top: 5px; background-color:red;}
-}
-
-.leftnav ul{
-    position: relative;
-    float: left;
-}
-
-.leftnav ul li{
-    position: relative;
-    list-style: none;
-    width: auto;
-    height: auto;
-    padding: 5px;
-    background-color: rgb(15, 7, 7);
-    z-index: 5;
-    transition: 1s;
-    border-style: solid;
-    border-color: red;
-}
-
-.leftnav ul li:hover{
-    background-color: black;
-    transform: translateX(-50px);
-}
-
-/* Styles for tables */
-.table1 {
-    padding-bottom: 0px;
-}
-
-table {
-    width: 100%;
-}
-thead{
-    color: white;
-    font-weight: bold;
-    background-color: black;
-    text-align: center;
-    
-}
-
-tr:nth-child(even) {
-    background-color: white;
-    
-}
-
-tbody {
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.flex-container {
-    display: flex;
-    margin: 20px 20px 30px 30px;
-    border: solid red;
-    background-color: black;
-}
-
-.flex-child {
-    flex: 1;
-    object-position: center;
-    text-align: center;
-    background-color: lightgrey;
-    font-size: x-large;
-}
-
-
-.flex-child:first-child {
-    margin-right: 20px;
-}
-
-/* Style rules for player profile */
-#player_header{
-    background-color: lightgray;
-}
-
-#playerimg{
-    image-rendering: crisp-edges;
-}
-
-#player h1 {
-    font-size: 50px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-#player h2 {
-    font-size: 45px;
-}
-
-.header {
-    position: relative;
-}
-
-/* Style for player stats */
-.stats{
-    background-color: white;
-    color: rgb(5, 5, 5);
-}
-
-.stats h2{
-    font-size: larger;
-    text-align: center;
-}
-
-
-
-
-/* Style rules for go cats flashing */
-#animatedText{
-    font-size: 50px;
-    font-weight: bold;
-    color: red;
-    background-color: black;
-    text-align: center;
-    
-} 
-
-/* Style rules for footer */
-footer{
-    text-align: center;
-    font-size: larger;
-}
-
-/* Style rules for img grid */
-.grid{
-    background-color: white;
-}
-.grid p {
-    color: black;
-    font-size: 20px;
-}
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-    background-color: rgb(254, 253, 253);
-  }
-  
-  /* Create two equal columns that sits next to each other */
-  .column {
-    flex: 50%;
-    padding: 0 4px;
-  }
-  
-  .column img  {
-    margin-top: 8px;
-    vertical-align: middle;
- }
- .column img :hover{
-    transform: scale(75%);
- }
-
-/* Media query for mobile devices */
-@media screen and (max-width: 767px) {
-header video{
-    background-color: red;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-nav li{
-    display: block;
-}
-
-body{
-    background-color: white;
-}
-
-.flex-container {
-    display: inline;
-    margin: 20px 20px 30px 30px;
-    border: none;
-    background-color: black;
-}
-
-table {
-    max-width: 10%;
-}
-
-.flex-child {
-    flex: 1;
-    object-position: center;
-    text-align: center;
-    background-color: lightgrey;
-    font-size: medium;
-}
-}
-
-/* Style rules for prospect year pages */
-.block {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    padding: 20px 10px;
-  }
-  
-  .container {
-    text-align: center;
-    display: contents;
-    padding: 20px 20px;
-  }
-  
-  .block img {
-   width: 100px;
-   height: 100px;
-   padding: 20px 20px;
-   position: relative;
-  }
-  
-  .playericon img{
-    width: 300px;
-    height: 500px;
-    padding: 20px 20px;
-    position: relative; 
-  }
-
-  
-.grad-year-section {
-    background-color: #fff;
-    border-left: 6px solid red;
-    margin-bottom: 20px;
-    padding: 15px 20px;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    text-align: center;
-}
-  
-.grad-year-section h2 {
-    margin-top: 0;
-    text-align: center;
-    padding: 10px 10px;
-}
-  
-.grad-year-section ul {
-    list-style-type: none;
-    padding-left: 0;
-    text-align: center;
-    padding: 10px 10px;
-}
-  
-.grad-year-section li {
-    margin: 10px 0;
-    text-align: center;
-
-  
-  a {
-    color: #f9fafc;
-    text-decoration: none;
-    text-align: center;
-}
-  
-  a:hover {
-    text-decoration: underline;
-}
-
-  .image-container {
-    position: relative;
-    width: 100%;
-    max-height: 400px;
-    overflow: hidden;
-}
-  
-  .image-container img {
-    width: 50%;
-    height: auto;
-    display: block;
-} 
-  
-.overlay h1 {
-    font-size: 3rem;
-    font-weight: bold;
-} 
-
-.overlay h2 {
-  font-size: 2rem;
-  font-weight: bold;
+.intro-text {
   text-align: center;
+  font-size: 2.5rem;
+  color: #ff0000;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out 1.2s forwards;
 }
 
-.class-links {
-  background-color: grey;
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* HEADER */
+.hero-header {
   text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  border-bottom: 4px solid #ff0000;
+  backdrop-filter: blur(4px);
 }
 
-.flashing-box {
-  padding: 15px 25px;
-  margin: 25px auto;
-  background-color: #fff;
-  border: 3px solid #a30000;
-  border-radius: 12px;
-  width: fit-content;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-  animation: flash 1.5s infinite alternate;
-  text-align: center;
+.glow-title {
+  font-size: 3rem;
+  color: #ff0000;
+  text-shadow: 0 0 20px #ff0000, 0 0 35px white;
+  animation: glowPulse 2.5s infinite alternate;
 }
 
-.flashing-box a {
-  color: #a30000;
-  font-weight: bold;
+@keyframes glowPulse {
+  from { text-shadow: 0 0 10px #ff0000; }
+  to { text-shadow: 0 0 35px white; }
+}
+
+/* NAVBAR */
+#navlist {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+#navlist a {
+  color: white;
   text-decoration: none;
   font-size: 1.1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: 0.3s;
 }
 
-/* Keyframes for flashing effect */
-@keyframes flash {
-  0% {
-    border-color: #a30000;
-    background-color: #ffffff;
-  }
-  50% {
-    border-color: #f1c40f;
-    background-color: #ffeeee;
-  }
-  100% {
-    border-color: #a30000;
-    background-color: #ffffff;
-  }
+#navlist a:hover,
+#navlist .active {
+  background: #ff0000;
+  transform: scale(1.1);
+}
+
+/* TICKER */
+.ticker {
+  width: 100%;
+  background: #111;
+  border-top: 3px solid #ff0000;
+  border-bottom: 3px solid #ff0000;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker__content {
+  display: inline-block;
+  padding: 10px 0;
+  animation: tickerMove 18s linear infinite;
+  font-size: 1.2rem;
+  color: #ff0000;
+}
+
+@keyframes tickerMove {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+/* CLAW MARK DIVIDER */
+.claw-divider {
+  width: 100%;
+  height: 60px;
+  background: url('../images/claw.png') center/contain no-repeat;
+  margin: 40px 0;
+}
+
+/* SLIDESHOW */
+.slideshow-container {
+  max-width: 900px;
+  margin: 30px auto;
+  border: 4px solid #ff0000;
+  box-shadow: 0 0 25px #ff0000;
+}
+
+.fade {
+  animation: fadeEffect 1.5s;
+}
+
+@keyframes fadeEffect {
+  from { opacity: .4; }
+  to { opacity: 1; }
+}
+
+/* CARDS */
+.card {
+  background: rgba(20,20,20,0.85);
+  border-left: 5px solid #ff0000;
+  padding: 20px;
+  margin: 25px auto;
+  width: 85%;
+  box-shadow: 0 0 15px #333;
+  border-radius: 6px;
+  backdrop-filter: blur(3px);
+}
+
+.section-title {
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  border-top: 4px solid #ff0000;
 }
