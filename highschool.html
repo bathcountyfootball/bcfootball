@@ -31,11 +31,15 @@
       <h1 class="intro-text">FEAR THE RED</h1>
     </div>
 
+    <!-- VIDEO WITH SOUND -->
     <div class="video">
-      <video width="800" height="400" autoplay loop muted>
+      <video id="hypeVideo" width="800" height="400" autoplay loop playsinline>
         <source src="videos/hypevid.mp4" type="video/mp4">
       </video>
     </div>
+
+    <!-- TAP TO UNMUTE BUTTON -->
+    <button id="unmuteBtn">Tap to Enable Sound</button>
 
     <nav class="navbar">
       <ul id="navlist">
@@ -51,7 +55,7 @@
   <!-- ESPN-STYLE SCROLLING TICKER -->
   <div class="ticker">
     <div class="ticker__content">
-      Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Protect the Den • Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Protect the Den
+      Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Defend the Hill • Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Defend the Hill
     </div>
   </div>
 
@@ -68,6 +72,7 @@
   </div>
 
   <script>
+    // SLIDESHOW
     let slideIndex = 0;
     showSlides();
     function showSlides() {
@@ -80,6 +85,22 @@
       slides[slideIndex-1].style.display = "block";
       setTimeout(showSlides, 3000);
     }
+
+    // VIDEO SOUND CONTROL
+    const video = document.getElementById("hypeVideo");
+    const unmuteBtn = document.getElementById("unmuteBtn");
+
+    video.muted = false;
+
+    video.play().catch(() => {
+      unmuteBtn.style.display = "block";
+    });
+
+    unmuteBtn.addEventListener("click", () => {
+      video.muted = false;
+      video.play();
+      unmuteBtn.style.display = "none";
+    });
   </script>
 
   <main>
@@ -110,10 +131,12 @@
     <div class="flex-container">
       <div class="flex-child card">
         <h2 class="section-title">2025 Wildcat Football Schedule</h2>
+        <div id="scheduleTable"></div>
       </div>
 
       <div class="flex-child card">
         <h2 class="section-title">2025 Wildcat Roster</h2>
+        <div id="rosterTable"></div>
       </div>
     </div>
 
