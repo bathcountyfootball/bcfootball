@@ -4,7 +4,7 @@
   <title>Bath County Wildcats Football</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css?v=10">
+  <link rel="stylesheet" href="css/styles.css?v=12">
 </head>
 
 <body>
@@ -23,12 +23,7 @@
     <h1 class="glow-title">Bath County High School Wildcats</h1>
     <h2 class="subhead">Head Coach: Brandon Brewer</h2>
 
-    <div class="intro-animation">
-      <div class="intro-logo"></div>
-      <div class="intro-dust"></div>
-      <h1 class="intro-text">FEAR THE RED</h1>
-    </div>
-
+    <!-- Removed intro dust + video -->
 
     <nav class="navbar">
       <ul id="navlist">
@@ -44,7 +39,7 @@
   <!-- TICKER -->
   <div class="ticker">
     <div class="ticker__content">
-      Wildcats • Friday Night Lights • Bath County Pride • Defend the Hill • Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Defend the Hill
+      Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Defend the Hill • Wildcats • Friday Night Lights • Bath County Pride • Fear the Red • Defend the Hill
     </div>
   </div>
 
@@ -62,7 +57,8 @@
 
   <main>
 
-    <div class="claw-divider"></div>
+    <!-- Removed claw/scratch divider -->
+    <br><br>
 
     <section class="card">
       <h1 class="section-title">FOLLOW THE CATS</h1>
@@ -73,6 +69,8 @@
       </ul>
     </section>
 
+    <br><br>
+
     <section class="card">
       <h1 class="section-title">News and Updates</h1>
       <ul class="news-list">
@@ -80,6 +78,8 @@
         <li>TBA: Parent Tailgate at the field planned for Spring.</li>
       </ul>
     </section>
+
+    <br><br>
 
     <!-- CARD LAYOUT FOR SCHEDULE + ROSTER -->
     <div class="flex-container">
@@ -115,19 +115,6 @@
       slides[slideIndex-1].style.display = "block";
       setTimeout(showSlides, 3000);
     }
-
-    // Video Sound
-    const video = document.getElementById("hypeVideo");
-    const unmuteBtn = document.getElementById("unmuteBtn");
-
-    video.muted = false;
-    video.play().catch(() => unmuteBtn.style.display = "block");
-
-    unmuteBtn.addEventListener("click", () => {
-      video.muted = false;
-      video.play();
-      unmuteBtn.style.display = "none";
-    });
 
     // Load Schedule Cards
     fetch("data/schedule.json")
